@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ===== GLOBAL ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0A0E17;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0E17;
+}
+::-webkit-scrollbar-thumb {
+  background: #00D4FF;
+  border-radius: 3px;
+}
+
+/* ===== GLASS EFFECT ===== */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+}
+
+/* ===== GLOW BUTTON ===== */
+.btn-glow {
+  background: linear-gradient(135deg, #00D4FF, #1E3A5F);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+  transition: all 0.3s ease;
+}
+.btn-glow:hover {
+  box-shadow: 0 0 40px rgba(0, 212, 255, 0.8);
+  transform: translateY(-2px);
+}
+
+/* ===== GOLD BUTTON ===== */
+.btn-gold {
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+  transition: all 0.3s ease;
+}
+.btn-gold:hover {
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+  transform: translateY(-2px);
+}
+
+/* ===== CARD HOVER ===== */
+.card-hover {
+  transition: all 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+}
+
+/* ===== GRADIENT TEXT ===== */
+.gradient-text {
+  background: linear-gradient(135deg, #00D4FF, #FFD700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== NEON BORDER ===== */
+.neon-border {
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.1);
+}
+
+/* ===== SPINNER ===== */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(0, 212, 255, 0.1);
+  border-top-color: #00D4FF;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===== PROGRESS BAR ===== */
+.progress-bar {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00D4FF, #00FF88);
+  border-radius: 4px;
+  transition: width 1s ease;
+}
+.progress-fill-danger {
+  height: 100%;
+  background: linear-gradient(90deg, #FFD700, #FF4444);
+  border-radius: 4px;
+  transition: width 1s ease;
+}
