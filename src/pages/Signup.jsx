@@ -21,7 +21,7 @@ const Signup = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  // STEP 1 - Signup (Real API Call)
+   // STEP 1 - Signup (Direct Account Creation - No OTP)
   const handleSignup = async (e) => {
     e.preventDefault()
     if (formData.password !== formData.confirmPassword) {
@@ -42,30 +42,20 @@ const Signup = () => {
         referralCode: formData.referralCode,
       })
 
-      toast.success(data.message || 'OTP sent to your email!')
-      setStep(2)
+      // Save token + user directly
+      localStorage.setItem('token', data.token)
+      localStorage.setItem('user', JSON.stringify(data.user))
+
+      toast.success('Account created successfully! 🎉')
+      
+      // Redirect to dashboard
+      window.location.href = '/dashboard'
     } catch (error) {
       toast.error(error.response?.data?.message || 'Signup failed!')
     } finally {
       setLoading(false)
     }
   }
-
-  // STEP 2 - Verify OTP (Real API Call)
-  const handleVerifyOTP = async (e) => {
-    e.preventDefault()
-    if (otp.length !== 6) {
-      toast.error('Please enter 6 digit OTP!')
-      return
-    }
-
-    setLoading(true)
-    try {
-      const { data } = await authAPI.verifyOTP({
-        email: formData.email,
-        otp,
-      })
-
       // Save token
       localStorage.setItem('token', data.token)
       localStorage.setItem('user', JSON.stringify(data.user))
